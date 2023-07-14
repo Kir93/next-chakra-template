@@ -1,11 +1,26 @@
-import { chakra } from '@chakra-ui/react';
-import Image from 'next/image';
+import { ChakraComponent, chakra } from '@chakra-ui/react';
+import Image, { ImageProps } from 'next/image';
 
-const Img = chakra(Image, {
+const Img: ChakraComponent<'img', ImageProps> = chakra(Image, {
   shouldForwardProp: (prop) =>
-    ['width', 'height', 'src', 'alt', 'quality', 'placeholder', 'blurDataURL', 'loader '].includes(
-      prop,
-    ),
+    [
+      'src',
+      'width',
+      'height',
+      'alt',
+      'loader',
+      'fill',
+      'sizes',
+      'style',
+      'quality',
+      'priority',
+      'placeholder',
+      'onLoadingComplete',
+      'onLoad',
+      'onError',
+      'loading',
+      'blurDataURL',
+    ].includes(prop),
 });
 
 export default Img;
